@@ -2,6 +2,10 @@
 CSC 1310-001 Lab Assignment #2
 Not Quizlet
 
+DIVISION OF LABOR : 
+ 1. Michael Cates - StudySet Class, Driver File, Functions File (specific functions, not the whole file)
+ 2. Mackenzie Raleigh - Student Class, Functions File (specific functions, not the whole file)
+
 Program Overview: 
 This program will perform in a way like the Quizlet website. It will allow the user, most likely a student, to create a list of study sets, which includes a list of terms/ definitions that they can study and quiz themselves on.
 
@@ -50,13 +54,13 @@ ii.	When the quiz is over, the program calculates the grade on the quiz and adds
 
 Classes to be Used:
 1.	StudySet
-a.	Will house a linked list of terms and definitions of string
-i.	The terms will be housed in the even indexed nodes and the definitions will be housed in the odd indexed nodes (ex: term1 at index 0, and definition1 at index 1)
-b.	Will also be home to other information about the set
-i.	Name of the set, The course that the set relates to, the subject that the set covers, and a summary of the study set, all of type string
-ii.	All of this along with the rest of the required properties of a linked list class 😊
+ a.	Will house a linked list of terms and definitions of string
+  i.	The terms will be housed in the even indexed nodes and the definitions will be housed in the odd indexed nodes (ex: term1 at index 0, and definition1 at index 1)
+ b.	Will also be home to other information about the set
+  i.	Name of the set, The course that the set relates to, the subject that the set covers, and a summary of the study set, all of type string
+  ii.	All of this along with the rest of the required properties of a linked list class 😊
 2.	Student
-a.	Will include the user’s information including a linked list of StudySet type
-b.	User information that will be used includes their name, age, year in school, and the linked list
+ a.	Will include the user’s information including a linked list of StudySet type
+ b.	User information that will be used includes their name, age, year in school, and the linked list
 
 Other Information:
