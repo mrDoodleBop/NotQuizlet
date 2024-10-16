@@ -63,4 +63,12 @@ Classes to be Used:
  a.	Will include the user’s information including a linked list of StudySet type
  b.	User information that will be used includes their name, age, year in school, and the linked list
 
+Functions to be Used:
+1. *****addFile --> the first function in the program that is created with the idea of real world use in mind!!!!!!! (overall a simple function, using basic techniques, but extremely useful for this level of programming)
+   a. this function's purpose is to add a user's study set information into a readable format in a text file and store that in
+     the program's directory under a specified title
+     ex: once the user has created a study set, they will be prompted for the desired name of the file that will be saved, preferrably the name of the study set, (kind of like saving a word doc, or powerpoint), allowing the user to create any number of unique text files that will remain
+        in their directory for as long as they would like. This would allow a user to continue to study their set long after the program has stopped running, otherwise everytime the program ends, all that information they created would be deleted
+   b. the file will also include a header at the top that displays the user's information from the student class as well as the date of file creation and the name of the study set
+
 Other Information:
