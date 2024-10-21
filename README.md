@@ -4,7 +4,14 @@ Not Quizlet
 
 DIVISION OF LABOR : 
  1. Michael Cates - StudySet Class, Driver File, Functions File (specific functions, not the whole file)
- 2. Mackenzie Raleigh - Student Class, Functions File (specific functions, not the whole file)
+     -> 
+ 3. Mackenzie Raleigh - Student Class, Functions File (specific functions, not the whole file)
+     -> Student Class:
+          Attributes - student name, pointer to a list of StudySet objects
+          Methods - Constructor, accessors/ getters, printStudentInfo method
+
+    -> Functions File:
+          TBA
 
 Program Overview: 
 This program will perform in a way like the Quizlet website. It will allow the user, most likely a student, to create a list of study sets, which includes a list of terms/ definitions that they can study and quiz themselves on.
