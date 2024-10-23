@@ -70,6 +70,10 @@ Classes to be Used:
  a.	Will include the user’s information including a linked list of StudySet type
  b.	User information that will be used includes their name, age, year in school, and the linked list
 
+ *****printStudentInfo() function:
+    1: print the student name
+    2: for each set in the stack of study sets, call the printSetInfo function from the StudySet class
+
 Functions to be Used:
 1. *****addFile --> the first function in the program that is created with the idea of real world use in mind!!!!!!! (overall a simple function, using basic techniques, but extremely useful for this level of programming)
    a. this function's purpose is to add a user's study set information into a readable format in a text file and store that in
