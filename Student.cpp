@@ -6,13 +6,18 @@
 */
 
 #include "Student.h"
-#include "StudySet.h"
 
-Student::Student(string studentName) : name(studentName) {}
-
-string Student::getName() const {
-    return name;
+template <typename T>
+Student<T>::Student(T studentName){
+    this->name = studentName;
 }
+
+template <typename T>
+string Student<T>::getName() {
+    return this->name;
+}
+
+/*
 
 void Student::addStudySet(StudySet* set) {
     studySets.push_back(set);
@@ -23,5 +28,4 @@ void Student::addStudySet(StudySet* set) {
 void Student::printStudentInfo() {
     
 }
-
-
+*/

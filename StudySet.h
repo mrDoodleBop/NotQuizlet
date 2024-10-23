@@ -13,8 +13,6 @@
 #include <list> //to create a list of terms and definitions
 
 using namespace std;
-
-
 template <typename T>
 class StudySet{
 
