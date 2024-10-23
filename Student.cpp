@@ -6,6 +6,7 @@
 */
 
 #include "Student.h"
+#include "StudySet.h"
 
 template <typename T>
 Student<T>::Student(T studentName){
@@ -17,15 +18,16 @@ string Student<T>::getName() {
     return this->name;
 }
 
-/*
 
-void Student::addStudySet(StudySet* set) {
+template<typename T>
+void Student<T>::addStudySet(StudySet<T> set) {
     studySets.push_back(set);
 }
 
 
-
-void Student::printStudentInfo() {
-    
+template<typename T>
+/*void Student::printStudentInfo() {
+    print student name
+    for loop each study set
 }
 */

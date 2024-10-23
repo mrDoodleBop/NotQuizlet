@@ -10,6 +10,7 @@
 
 #include "StudySet.h"
 #include <string>
+#include <stack>
 
 using namespace std;
 
@@ -20,7 +21,7 @@ template <typename T>
 class Student {
 private:
     string name;                 // Student's name
-    list<StudySet<T>> studySets;    // Pointer to a list of StudySet objects
+    stack<StudySet<T>> studySets;    // Pointer to a list of StudySet objects
 
 public:
     // Constructor to initialize student name
@@ -30,11 +31,11 @@ public:
     string getName();
 
     // Method to add a StudySet to the student's list of sets
-    void addStudySet(StudySet* set);
+    void addStudySet(StudySet<T> set);
 
     // Method to print student information and all study sets
     void printStudentInfo();
 
 };
 
-#endif // STUDENT_H
+#endif 
