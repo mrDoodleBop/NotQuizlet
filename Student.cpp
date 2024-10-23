@@ -18,19 +18,10 @@ void Student::addStudySet(StudySet* set) {
     studySets.push_back(set);
 }
 
-void Student::printStudentInfo() const {
-    cout << "Student Name: " << name << endl;
-    cout << "Study Sets:" << endl;
-    for (StudySet* set : studySets) {
-        cout << "- " << set->getSetName() << endl;
-    }
+
+
+void Student::printStudentInfo() {
+    
 }
 
-StudySet* Student::getStudySet(const string& setName) {
-    for (StudySet* set : studySets) {
-        if (set->getSetName() == setName) {
-            return set;
-        }
-    }
-    return nullptr;
-}
+
