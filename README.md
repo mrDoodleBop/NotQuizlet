@@ -78,4 +78,8 @@ Functions to be Used:
         in their directory for as long as they would like. This would allow a user to continue to study their set long after the program has stopped running, otherwise everytime the program ends, all that information they created would be deleted
    b. the file will also include a header at the top that displays the user's information from the student class as well as the date of file creation and the name of the study set
 
+  2. EditSet
+  3. StudySet
+  4. QuizSet
+
 Other Information:
