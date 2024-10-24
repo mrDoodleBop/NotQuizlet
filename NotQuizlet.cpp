@@ -9,7 +9,6 @@
 #include "StudySet.h"
 #include "Student.h"
 
-
 //main function:
 int main(){
 

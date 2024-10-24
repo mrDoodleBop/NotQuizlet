@@ -1,6 +1,12 @@
 /*
     File Name : Functions.cpp
-    Author Name : 
+    Author Name : Michael Cates & Mackenzie Raleigh
     Date : 10/10/2024
-    Purpose : Function implementation file
+    Purpose : Function definitions file
 */
+
+
+#include "Functions.h"
+
+
+//FUNCTION DEFINITIONS
