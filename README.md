@@ -90,3 +90,4 @@ Functions to be Used:
        ---> if they choose to do this, the addFile function will be called to save the quiz information
 
 Other Information:
+1. The test cases in this program will be examples of how the user can enter their premade study sets to the program rather than create a new one :)
