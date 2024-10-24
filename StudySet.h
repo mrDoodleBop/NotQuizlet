@@ -47,6 +47,9 @@ class StudySet{
         //mutator:
         void setName(string);
 
+        //print info function:
+        void printSetInfo();
+
 };//end of StudySet class
 
 

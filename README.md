@@ -66,7 +66,8 @@ Classes to be Used:
  b.	Will also be home to other information about the set
   i.	Name of the set, The course that the set relates to, the subject that the set covers, and a summary of the study set, all of type string
   ii.	All of this along with the rest of the required properties of a linked list class 😊
-2.	Student
+
+3.	Student
  a.	Will include the user’s information including a linked list of StudySet type
  b.	User information that will be used includes their name, age, year in school, and the linked list
 
@@ -81,5 +82,11 @@ Functions to be Used:
      ex: once the user has created a study set, they will be prompted for the desired name of the file that will be saved, preferrably the name of the study set, (kind of like saving a word doc, or powerpoint), allowing the user to create any number of unique text files that will remain
         in their directory for as long as they would like. This would allow a user to continue to study their set long after the program has stopped running, otherwise everytime the program ends, all that information they created would be deleted
    b. the file will also include a header at the top that displays the user's information from the student class as well as the date of file creation and the name of the study set
+
+  2. EditSet
+  3. StudySet
+  4. QuizSet
+     --> at the end of this function, the user will be asked if they would like to save their quiz results to a text file
+       ---> if they choose to do this, the addFile function will be called to save the quiz information
 
 Other Information:
