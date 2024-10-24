@@ -25,8 +25,8 @@ void Student<T>::addStudySet(StudySet<T> set) {
 }
 
 
-template<typename T>
-/*void Student::printStudentInfo() {
+/*template<typename T>
+void Student::printStudentInfo() {
     print student name
     for loop each study set
 }
