@@ -20,8 +20,9 @@ using namespace std;
 template <typename T>
 class Student {
 private:
-    string name;                 // Student's name
-    stack<StudySet<T>> studySets;    // Pointer to a list of StudySet objects
+  
+    T name;                 // Student's name
+    stack<StudySet<T>>* studySets;    // Pointer to a list of StudySet objects
 
 public:
     // Constructor to initialize student name
