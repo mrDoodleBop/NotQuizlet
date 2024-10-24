@@ -9,6 +9,13 @@
 #include "StudySet.h"
 
 template <typename T>
+Student<T>::Student(){
+
+    this->name = "N/A";
+
+}
+
+template <typename T>
 Student<T>::Student(T studentName){
     this->name = studentName;
 }
@@ -24,7 +31,7 @@ void Student<T>::addStudySet(StudySet<T> set) {
     studySets.push_back(set);
 }
 
-
+/*
 template<typename T>
 void Student<T>::printStudentInfo() {
     cout << "Student Name: " << name << endl;
