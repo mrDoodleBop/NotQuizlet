@@ -25,9 +25,12 @@ void Student<T>::addStudySet(StudySet<T> set) {
 }
 
 
-/*template<typename T>
-void Student::printStudentInfo() {
-    print student name
-    for loop each study set
+template<typename T>
+void Student<T>::printStudentInfo() {
+    cout << "Student Name: " << name << endl;
+    cout << "Study Sets:" << endl;
+    for (StudySet* set : studySets) {
+        set->printSetInfo();  // Call printSetInfo for each study set
+        cout << "---------------------------" << endl; // Separator for clarity
+    }
 }
-*/
