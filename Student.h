@@ -10,7 +10,7 @@
 
 #include "StudySet.h"
 #include <string>
-#include <stack>
+#include <list>
 
 using namespace std;
 
@@ -22,7 +22,7 @@ class Student {
 private:
   
     T name;                 // Student's name
-    stack<StudySet<T>>* studySets;    // Pointer to a list of StudySet objects
+    list<StudySet<T>>* studySets;    // Pointer to a list of StudySet objects
 
 public:
     // Constructor to initialize student name
