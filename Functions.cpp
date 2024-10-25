@@ -25,7 +25,7 @@ void editASet(Student<T>* student) {
         // Here, provide options like add, delete, edit terms/definitions, etc.
         // This part will need interaction with the user.
     } else {
-        cerr << "Invalid set index!" << endl;
+        cout << "Invalid set index!" << endl;
     }
 }
 
