@@ -9,6 +9,13 @@
 #include "StudySet.h"
 
 template <typename T>
+Student<T>::Student(){
+
+    this->name = "N/A";
+
+}
+
+template <typename T>
 Student<T>::Student(T studentName){
     this->name = studentName;
 }
@@ -27,10 +34,11 @@ void Student<T>::addStudySet(StudySet<T> set) {
 
 template<typename T>
 void Student<T>::printStudentInfo() {
-    cout << "Student Name: " << name << endl;
-    cout << "Study Sets:" << endl;
+    cout << "\n\n|---------- Student Information ----------|";
+    cout << "\n\t\tStudent Name: " << name;
+    cout << "\n\t\tStudy Sets:";
     for (StudySet* set : studySets) {
         set->printSetInfo();  // Call printSetInfo for each study set
-        cout << "---------------------------" << endl; // Separator for clarity
+        cout << "\n\n---------------------------" << endl; // Separator for clarity
     }
 }

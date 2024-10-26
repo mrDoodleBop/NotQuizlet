@@ -17,14 +17,14 @@ template <typename T>
 class StudySet{
 
     private:
-        string setName;
+        T name;
         list<T>* set;//will be an alternating list of "terms" and "definitions" -> the terms are at even indexes and the definitions are at odd indexes (even though lists don't technically work with indexes, its just for visualization)
         
         //structure for the list nodes:
         struct listNode{
             T value;
             listNode *next;
-        }
+        };
 
         //pointer for the head of the list:
         listNode *head;
@@ -35,6 +35,7 @@ class StudySet{
 
         //constructor:
         StudySet(){
+            name = NULL;
             head = NULL;
         }
 
@@ -42,10 +43,10 @@ class StudySet{
         ~StudySet();
 
         //accessor:
-        string getName();
+        T getName();
 
         //mutator:
-        void setName(string);
+        void setName(T);
 
         //print info function:
         void printSetInfo();
