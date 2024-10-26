@@ -34,8 +34,8 @@
     -> if the list of study sets is empty, the function will inform the user that and won't save a file, because it would
     be a waste of space to save an empty file
 */
-template <typename T>
-void addFile(Student<T> &user);
+
+void addFile(Student*user);
 
 /*
     Name : 
@@ -44,7 +44,8 @@ void addFile(Student<T> &user);
     Returns : 
     Purpose :
 */
-void createASet();
+
+void createASet(Student*user);
 
 /*
     Name : 

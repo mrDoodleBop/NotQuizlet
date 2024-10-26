@@ -5,9 +5,6 @@
     Purpose : Driver file for the NotQuizlet program
 */
 
-
-#include "StudySet.h"
-#include "Student.h"
 #include "Functions.h"
 
 //main function:
@@ -19,6 +16,7 @@ int main(){
 
     string userName;
     int menuChoice;
+    Student*user;
 
     //asking user if they would like to begin:
     system("CLS");
@@ -41,7 +39,7 @@ int main(){
         cout << "\n\t\tEnter your name : ";
         cin.ignore();
         getline(cin, userName);
-        Student user = new Student(userName);
+        user = new Student(userName);
 
 
         //while loop to run the program:
@@ -73,11 +71,11 @@ int main(){
 
                 case 1:
                     //call the printStudentInfo() function
-                    user.printStudentInfo();
+                    user->printStudentInfo();
                     break;
                 case 2:
                     //call createSet function
-                    createASet();
+                    createASet(user);
                     break;
                 case 3:
                     //call editSet function
@@ -134,6 +132,7 @@ int main(){
         }//end of while loop
 
         //delete all dynamically allocated memory:
+        delete user;
 
     }//end of creation of Student object/ program runtime
 
