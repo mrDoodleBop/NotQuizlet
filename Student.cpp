@@ -31,13 +31,14 @@ void Student<T>::addStudySet(StudySet<T> set) {
     studySets.push_back(set);
 }
 
-/*
+
 template<typename T>
 void Student<T>::printStudentInfo() {
-    cout << "Student Name: " << name << endl;
-    cout << "Study Sets:" << endl;
+    cout << "\n\n|---------- Student Information ----------|";
+    cout << "\n\t\tStudent Name: " << name;
+    cout << "\n\t\tStudy Sets:";
     for (StudySet* set : studySets) {
         set->printSetInfo();  // Call printSetInfo for each study set
-        cout << "---------------------------" << endl; // Separator for clarity
+        cout << "\n\n---------------------------" << endl; // Separator for clarity
     }
 }

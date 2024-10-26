@@ -15,6 +15,7 @@
 
 /*
     Name : addFile
+    Author Name : Michael Cates
     Arguments : Student object
     Returns : void
     Purpose : 
@@ -37,7 +38,8 @@ template <typename T>
 void addFile(Student<T> &user);
 
 /*
-    Name :
+    Name : 
+    Author Name : Michael Cates
     Arguments : 
     Returns : 
     Purpose :
@@ -45,7 +47,8 @@ void addFile(Student<T> &user);
 void createASet();
 
 /*
-    Name :
+    Name : 
+    Author Name : Mackenzie Raleigh
     Arguments : 
     Returns : 
     Purpose :
@@ -53,7 +56,8 @@ void createASet();
 void editASet();
 
 /*
-    Name :
+    Name : 
+    Author Name : Michael Cates
     Arguments : 
     Returns : 
     Purpose :
@@ -61,7 +65,8 @@ void editASet();
 void studyASet();
 
 /*
-    Name :
+    Name : 
+    Author Name : Mackenzie Raleigh
     Arguments : 
     Returns : 
     Purpose :

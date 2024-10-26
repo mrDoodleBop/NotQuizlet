@@ -29,16 +29,16 @@ StudySet<T>::~StudySet(){
 }//end of destructor method
 
 template <typename T>
-string StudySet<T>::getName(){
+T StudySet<T>::getName(){
 
-    return this->setName;
+    return this->name;
 
 }//end of get name method
 
 template <typename T>
-void StudySet<T>::setName(string n){
+void StudySet<T>::setName(T n){
 
-    this->setName = n;
+    this->name = n;
 
 }//end of set name method
 
@@ -73,7 +73,7 @@ void StudySet<T>::printSetInfo(){
         int i = 0; //iterator to help determine whether the value in the node is a term or definition
 
         //Displaying the header:
-        cout << "\n\n\t\t|---------- " << setName << " ----------|";
+        cout << "\n\n\t\t|---------- " << this->name << " ----------|";
 
         //iterate through the list printing out the study set information:
         while(nodePtr != NULL){
