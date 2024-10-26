@@ -9,13 +9,12 @@
 
 //Method Definitions:
 
-template <typename T>
-StudySet<T>::~StudySet(){
+StudySet::~StudySet(){
 
     listNode *nodePtr, *nextNode;
 
     //position nodePtr at the top of the stack:
-    nodePtr = top;
+    nodePtr = head;
 
     //traverse list deleting each node:
     while (nodePtr != NULL){
@@ -28,22 +27,19 @@ StudySet<T>::~StudySet(){
 
 }//end of destructor method
 
-template <typename T>
-T StudySet<T>::getName(){
+string StudySet::getName(){
 
     return this->name;
 
 }//end of get name method
 
-template <typename T>
-void StudySet<T>::setName(T n){
+void StudySet::setName(string n){
 
     this->name = n;
 
 }//end of set name method
 
-template <typename T> 
-void StudySet<T>::printSetInfo(){
+void StudySet::printSetInfo(){
 
     listNode *nodePtr, *nextNode;
 
@@ -56,19 +52,8 @@ void StudySet<T>::printSetInfo(){
 
     } else {   
 
-        /*
-            These variables are not necessary in outputting the correct information for term and definition,
-            but they are usefull for me in keeping track of the terms and definitions while programming considering
-            how they are stored in the list
-
-            --> they are also of a template typename because this program allows the user to store any data type they would like
-            for terms and definitions, but the terms and definitions have to be the same data type
-                1. useful for working with integers, strings, doubles, anythings
-
-
-        */
-        T term;
-        T def;
+        string term;
+        string def;
 
         int i = 0; //iterator to help determine whether the value in the node is a term or definition
 
@@ -99,3 +84,90 @@ void StudySet<T>::printSetInfo(){
     }//end of if/ else branch
 
 }//end of print set info function
+
+void StudySet::append(string value){
+
+    listNode *newNode;
+
+    newNode = new listNode;
+    newNode->value = value;
+    newNode->next = NULL;
+
+    if(!head){
+
+        head = newNode;
+        tail = newNode;
+
+    } else {
+
+        tail->next = newNode;
+        tail = newNode;
+
+    }
+
+    //delete allocated memory:
+    delete newNode;
+
+}//end of append function
+
+bool StudySet::isEmpty(){
+
+    if(!head){
+        return true;
+    } else {
+        return false;
+    }
+
+}//end of the is empty function
+
+void StudySet::remove(string n){
+    //function will remove the term that the user enters plus the node next to the term (definition)
+
+    listNode *nodePtr, *nextNode, *previousNode;
+
+    //if the list is empty, do nothing:
+    if(!head){
+
+        cout << "\n\n\t\tThe list is empty. There is nothing to delete.";
+        return;
+
+    } 
+
+
+    if(head->value == n){
+        nodePtr = head->next;
+        nextNode = nodePtr->next;
+
+        //delete the term node and the definition node:
+        delete head;
+        delete nodePtr;
+
+        nodePtr = nextNode;
+        head = nodePtr;
+        nextNode = head->next;
+    } else {
+
+        nodePtr = head;
+
+        while (nodePtr != NULL && nodePtr->value != n){
+
+            previousNode = nodePtr;
+            nodePtr = nextNode;
+            nextNode = nodePtr->next;
+
+        }
+
+        if(nodePtr){
+            if(nodePtr == tail){
+
+                tail = previousNode;
+
+            }
+
+            previousNode->next = nodePtr->next;
+            delete nodePtr;
+        }
+
+    }
+}
+

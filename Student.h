@@ -17,25 +17,24 @@ using namespace std;
 // Forward declaration of StudySet class (since StudySet will be included later)
 //class StudySet;
 
-template <typename T>
 class Student {
 private:
   
-    T name;                 // Student's name
-    list<StudySet<T>>* studySets;    // Pointer to a list of StudySet objects
+    string name;                 // Student's name
+    list<StudySet>* studySets;    // Pointer to a list of StudySet objects
 
 public:
     // Constructor to initialize student name
 
     Student();
 
-    Student(T studentName);
+    Student(string);
 
     // Accessor to get the student's name
     string getName();
 
     // Method to add a StudySet to the student's list of sets
-    void addStudySet(StudySet<T> set);
+    void addStudySet(StudySet*);
 
     // Method to print student information and all study sets
     void printStudentInfo();

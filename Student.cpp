@@ -8,37 +8,42 @@
 #include "Student.h"
 #include "StudySet.h"
 
-template <typename T>
-Student<T>::Student(){
+Student::Student(){
 
     this->name = "N/A";
 
 }
 
-template <typename T>
-Student<T>::Student(T studentName){
+
+Student::Student(string studentName){
     this->name = studentName;
 }
 
-template <typename T>
-string Student<T>::getName() {
+string Student::getName() {
     return this->name;
 }
 
 
-template<typename T>
-void Student<T>::addStudySet(StudySet<T> set) {
-    studySets.push_back(set);
+void Student::addStudySet(StudySet* set) {
+    
+    //add the argument set into the list of linked lists in the student class:
+
 }
 
 
-template<typename T>
-void Student<T>::printStudentInfo() {
+void Student::printStudentInfo() {
     cout << "\n\n|---------- Student Information ----------|";
     cout << "\n\t\tStudent Name: " << name;
     cout << "\n\t\tStudy Sets:";
-    for (StudySet* set : studySets) {
-        set->printSetInfo();  // Call printSetInfo for each study set
-        cout << "\n\n---------------------------" << endl; // Separator for clarity
-    }
+
+    int n = 1;
+
+    //traverse the list and print the name of every study set in the list:
+    for(list<StudySet>::iterator i = studySets->begin(); i != studySets->end(); i++){
+        
+        cout << "\n\t\t" << n << ". " << i->getName() << " ";
+        n++;
+
+    }//end of for loop
+
 }

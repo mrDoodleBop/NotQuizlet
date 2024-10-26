@@ -10,46 +10,64 @@
 
 #include <iostream>
 #include <string>
-#include <list> //to create a list of terms and definitions
 
 using namespace std;
-template <typename T>
+
 class StudySet{
 
     private:
-        T name;
-        list<T>* set;//will be an alternating list of "terms" and "definitions" -> the terms are at even indexes and the definitions are at odd indexes (even though lists don't technically work with indexes, its just for visualization)
+        string name;
         
         //structure for the list nodes:
         struct listNode{
-            T value;
+            string value;
             listNode *next;
         };
 
-        //pointer for the head of the list:
+        //pointer for the head and tail of the list:
         listNode *head;
-
+        listNode *tail;
 
 
     public:
 
         //constructor:
         StudySet(){
-            name = NULL;
+            name = "N/A";
             head = NULL;
+            tail = NULL;
+        }
+
+        StudySet(string n){
+            name = n;
+            head = NULL;
+            tail = NULL;
         }
 
         //Destructor
         ~StudySet();
 
         //accessor:
-        T getName();
+        string getName();
 
         //mutator:
-        void setName(T);
+        void setName(string);
 
         //print info function:
         void printSetInfo();
+
+        //append:
+        void append(string);
+
+        //isEmpty:
+        bool isEmpty();
+
+        //remove term:
+        void remove(string);
+
+        //add a list:
+        //->this function is only used when dealing with the studySets linked list in the student class:
+        void appendList(StudySet*);
 
 };//end of StudySet class
 
