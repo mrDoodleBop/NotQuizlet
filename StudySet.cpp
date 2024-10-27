@@ -1,6 +1,6 @@
 /*
     File Name : StudySet.cpp
-    Author Name : 
+    Author Name : Michael Cates
     Date : 10/10/2024
     Purpose : script file for the StudySet class
 */

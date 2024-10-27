@@ -10,6 +10,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstdlib> // for rand()
+#include <ctime>   // for seeding rand()
 
 using namespace std;
 
@@ -30,20 +32,63 @@ using namespace std;
     6. change the value
     7. display a message to the user that the value they wanted to change has been updated
 
+*/
+
 
 void editASet(Student* student) {
-    int setIndex;
-    student->printStudySets();  // Assuming this prints the study sets list
-    cout << "\n\n\t\tEnter the number of the set you wish to edit: ";
-    cin >> setIndex;
+    std::string setName, term, newTermOrDefinition;
+    int choice;
 
-    if (setIndex >= 0 && setIndex < student->getStudySets().size()) {
-        StudySet* set = &student->getStudySets()[setIndex];
-        // Here, provide options like add, delete, edit terms/definitions, etc.
-        // This part will need interaction with the user.
-    } else {
-        cout << "\n\n\t\tInvalid set index!" << endl;
+    // Step 1: Ask for the set name
+    std::cout << "Enter the name of the study set you would like to edit: ";
+    std::getline(std::cin, setName);
+
+    // Step 2: Search for the study set by name
+    StudySet* set = student->findStudySetByName(setName);
+    while (set == nullptr) {
+        std::cout << "Study set not found. Please enter a valid study set name: ";
+        std::getline(std::cin, setName);
+        set = student->findStudySetByName(setName);
     }
+
+    // Step 3: Ask the user to edit a term or definition
+    std::cout << "Would you like to edit a (1) term or (2) definition? Enter 1 or 2: ";
+    std::cin >> choice;
+    std::cin.ignore(); // Ignore remaining newline in input buffer
+
+    if (choice == 1) {
+        // Step 4: Edit a term
+        std::cout << "Enter the term you would like to edit: ";
+        std::getline(std::cin, term);
+
+        // Check if term exists
+        if (set->hasTerm(term)) {
+            std::cout << "Enter the new term: ";
+            std::getline(std::cin, newTermOrDefinition);
+            set->updateTerm(term, newTermOrDefinition);
+            std::cout << "The term has been successfully updated.\n";
+        } else {
+            std::cout << "Term not found in this set.\n";
+        }
+    } else if (choice == 2) {
+        // Step 5: Edit a definition
+        std::cout << "Enter the term whose definition you want to edit: ";
+        std::getline(std::cin, term);
+
+        // Check if term exists
+        if (set->hasTerm(term)) {
+            std::cout << "Enter the new definition: ";
+            std::getline(std::cin, newTermOrDefinition);
+            set->updateDefinition(term, newTermOrDefinition);
+            std::cout << "The definition has been successfully updated.\n";
+        } else {
+            std::cout << "Term not found in this set.\n";
+        }
+    } else {
+        std::cout << "Invalid choice. Please enter 1 for term or 2 for definition.\n";
+    }
+}
+/*
 }
 
 
@@ -66,22 +111,66 @@ void editASet(Student* student) {
         to go back to the menu and choose the quiz a set option again to restart the function
 
 
+*/
+
 
 void quizASet(Student* student) {
-    int setIndex;
-    student->printStudySets();
-    cout << "\n\n\t\tEnter the number of the set you wish to quiz over: ";
-    cin >> setIndex;
+    std::string setName;
+    int numQuestions;
+    char tryAgain;
+    
+    // Step 1: Ask for the study set name
+    std::cout << "Enter the name of the study set you would like to quiz over: ";
+    std::getline(std::cin, setName);
 
-    if (setIndex >= 0 && setIndex < student->getStudySets().size()) {
-        StudySet* set = &student->getStudySets()[setIndex];
-        // Implement the quizzing functionality
-    } else {
-        cout << "\n\n\t\tInvalid set index!" << endl;
+    // Step 2: Search for the study set by name
+    StudySet* set = student->findStudySetByName(setName);
+    while (set == nullptr) {
+        std::cout << "Study set not found. Please enter a valid study set name: ";
+        std::getline(std::cin, setName);
+        set = student->findStudySetByName(setName);
     }
+
+    do {
+        // Step 3: Ask for the number of quiz questions
+        std::cout << "How many questions would you like the quiz to be? ";
+        std::cin >> numQuestions;
+        std::cin.ignore(); // Ignore newline in the input buffer
+
+        int score = 0;
+        int setSize = set->getNumberOfTerms(); // Assuming this method returns total term/definition pairs
+
+        // Step 4: Quiz the user
+        for (int i = 0; i < numQuestions; ++i) {
+            int index = i % setSize; // Loop back if numQuestions > setSize
+            std::string definition = set->getDefinitionAt(index);
+            std::string correctTerm = set->getTermAt(index);
+
+            std::string userAnswer;
+            std::cout << "Definition: " << definition << "\nYour answer: ";
+            std::getline(std::cin, userAnswer);
+
+            // Step 4c: Check answer
+            if (userAnswer == correctTerm) {
+                std::cout << "Correct!\n";
+                score++;
+            } else {
+                std::cout << "Incorrect. The correct answer was: " << correctTerm << "\n";
+            }
+        }
+
+        // Step 5: Calculate score
+        double percentage = (static_cast<double>(score) / numQuestions) * 100;
+        std::cout << "Your quiz score: " << percentage << "%\n";
+
+        // Step 6: Ask to retry
+        std::cout << "Would you like to take the quiz again on this set? (y/n): ";
+        std::cin >> tryAgain;
+        std::cin.ignore(); // Ignore remaining newline in input buffe
+
 }
 
-*/
+*
 
 
 void createASet(Student* user){ 
