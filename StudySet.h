@@ -70,6 +70,13 @@ class StudySet{
         void updateTerm(const string& oldTerm, const string& newTerm); // Update a term
         void updateDefinition(const string& term, const string& newDefinition); // Update a definition
 
+        // Get number of terms
+        int getNumberOfTerms(); // New method declaration
+
+        // Get term and definition at specific index
+        string getTermAt(int index);          // New method declaration
+        string getDefinitionAt(int index);    // New method declaration
+
         //add a list:
         //->this function is only used when dealing with the studySets linked list in the student class:
         void appendList(StudySet*);

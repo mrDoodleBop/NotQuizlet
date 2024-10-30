@@ -188,7 +188,8 @@ void quizASet(Student* student)
         std::cin >> tryAgain;
         std::cin.ignore(); // Ignore remaining newline in input buffe
 
-    }//*****YOU NEED TO HAVE A WHILE CONDITION TO GO AT THE END OF THE DO/WHILE LOOP */
+    }
+    while (tryAgain == 'y' || tryAgain == 'Y'); // Continue if user wants to retry
 }   
 
 

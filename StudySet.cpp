@@ -219,3 +219,55 @@ void StudySet::updateDefinition(const std::string& term, const std::string& newD
     }
     std::cout << "Term not found in this set.\n";
 }
+
+
+// Get the number of terms
+int StudySet::getNumberOfTerms() {
+    listNode* nodePtr = head;
+    int count = 0;
+
+    while (nodePtr != NULL) {
+        if (count % 2 == 0) { // Count only terms (even indices)
+            count++;
+        }
+        nodePtr = nodePtr->next;
+    }
+
+    return count;
+}
+
+// Get the term at a specific index
+string StudySet::getTermAt(int index) {
+    listNode* nodePtr = head;
+    int count = 0;
+
+    while (nodePtr != NULL) {
+        if (count % 2 == 0) { // Even index: term
+            if (count == index) {
+                return nodePtr->value;
+            }
+        }
+        nodePtr = nodePtr->next;
+        count++;
+    }
+
+    return ""; // Return an empty string if the index is out of bounds
+}
+
+// Get the definition at a specific index
+string StudySet::getDefinitionAt(int index) {
+    listNode* nodePtr = head;
+    int count = 0;
+
+    while (nodePtr != NULL) {
+        if (count % 2 == 1) { // Odd index: definition
+            if (count == index) {
+                return nodePtr->value;
+            }
+        }
+        nodePtr = nodePtr->next;
+        count++;
+    }
+
+    return ""; // Return an empty string if the index is out of bounds
+}
