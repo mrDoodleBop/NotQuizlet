@@ -54,7 +54,7 @@ void createASet(Student*user);
     Returns : 
     Purpose :
 */
-void editASet();
+void editASet(Student* student);
 
 /*
     Name : 

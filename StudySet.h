@@ -65,6 +65,11 @@ class StudySet{
         //remove term:
         void remove(string);
 
+        // New methods
+        bool hasTerm(const string& term);                 // Check if a term exists
+        void updateTerm(const string& oldTerm, const string& newTerm); // Update a term
+        void updateDefinition(const string& term, const string& newDefinition); // Update a definition
+
         //add a list:
         //->this function is only used when dealing with the studySets linked list in the student class:
         void appendList(StudySet*);

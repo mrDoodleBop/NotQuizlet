@@ -36,8 +36,12 @@ public:
     // Method to add a StudySet to the student's list of sets
     void addStudySet(StudySet*);
 
+    // Method to find a StudySet by name
+    StudySet* findStudySetByName(const string& setName);
+
     // Method to print student information and all study sets
     void printStudentInfo();
+
 
 };
 

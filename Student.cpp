@@ -30,6 +30,15 @@ void Student::addStudySet(StudySet* set) {
 
 }
 
+// Finds a StudySet by name
+StudySet* Student::findStudySetByName(const std::string& setName) {
+    for (auto it = studySets->begin(); it != studySets->end(); ++it) {  // Iterator-based loop
+        if (it->getName() == setName) {
+            return &(*it);
+        }
+    }
+    return nullptr;
+}
 
 void Student::printStudentInfo() {
     cout << "\n\n|---------- Student Information ----------|";

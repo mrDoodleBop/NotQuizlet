@@ -171,3 +171,51 @@ void StudySet::remove(string n){
     }
 }
 
+
+// Check if a term exists
+bool StudySet::hasTerm(const std::string& term) {
+    listNode* nodePtr = head;
+    int i = 0;
+    while (nodePtr != NULL) {
+        if (i % 2 == 0 && nodePtr->value == term) {
+            return true;
+        }
+        nodePtr = nodePtr->next;
+        i++;
+    }
+    return false;
+}
+
+// Update a term
+void StudySet::updateTerm(const std::string& oldTerm, const std::string& newTerm) {
+    listNode* nodePtr = head;
+    int i = 0;
+    while (nodePtr != NULL) {
+        if (i % 2 == 0 && nodePtr->value == oldTerm) {
+            nodePtr->value = newTerm;
+            return;
+        }
+        nodePtr = nodePtr->next;
+        i++;
+    }
+    std::cout << "Term not found in this set.\n";
+}
+
+// Update a definition
+void StudySet::updateDefinition(const std::string& term, const std::string& newDefinition) {
+    listNode* nodePtr = head;
+    int i = 0;
+    while (nodePtr != NULL) {
+        if (i % 2 == 0 && nodePtr->value == term) {
+            if (nodePtr->next != NULL) {
+                nodePtr->next->value = newDefinition;
+            } else {
+                std::cout << "Definition not found for this term.\n";
+            }
+            return;
+        }
+        nodePtr = nodePtr->next;
+        i++;
+    }
+    std::cout << "Term not found in this set.\n";
+}
