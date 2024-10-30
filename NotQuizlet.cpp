@@ -79,7 +79,7 @@ int main(){
                     break;
                 case 3:
                     //call editSet function
-                    editASet();
+                    editASet(user);
                     break;
                 case 4:
                     //call studyASet function
