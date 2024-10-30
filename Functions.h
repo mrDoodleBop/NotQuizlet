@@ -48,31 +48,72 @@ void addFile(Student*user);
 void createASet(Student*user);
 
 /*
-    Name : 
+    Name : createASet
     Author Name : Mackenzie Raleigh
     Arguments : 
+        - Student* user: 
+            - A pointer to a `Student` object that represents the user who is creating the study set. 
+            - This pointer allows access to the student’s data and methods for managing study sets.
+        
     Returns : 
-    Purpose :
+        - void: This function does not return a value. 
+        - Instead, it modifies the state of the `Student` object by creating and adding a new `StudySet` to the user's collection of study sets.
+
+    Purpose : 
+        - This function prompts the user to enter details for a new study set, such as its name and the terms and definitions to be included. 
+        - It then creates the study set and adds it to the student's collection, enabling the user to organize their study material effectively.
 */
 void editASet(Student* student);
 
 /*
-    Name : 
-    Author Name : Michael Cates
-    Arguments : 
+    Name : editASet
+    Author Name : Mackenzie Raleigh
+        - Student* student: A pointer to a `Student` object that represents the user who owns the study set being edited. 
+        - This pointer allows access to the student's study sets and related methods.
+
     Returns : 
-    Purpose :
+        - void: This function does not return a value. 
+        - Instead, it modifies the specified study set based on user input.
+
+    Purpose : 
+        - This function allows the user to edit an existing study set. 
+        - It prompts the user to select a study set and provides options for updating terms, definitions, or the name of the study set. 
+        - The function may include functionality to add new terms, remove existing terms, or modify definitions. 
+        - This interactive editing session aims to help the user keep their study materials up-to-date and relevant.
 */
 void studyASet();
 
-/*
-    Name : 
+/* 
+    Name : studyASet
     Author Name : Mackenzie Raleigh
     Arguments : 
+            - void: This function takes no arguments.
     Returns : 
-    Purpose :
+        - void: This function does not return a value. 
+        - Instead, it performs actions based on the study set selected by the user.
+
+    Purpose : 
+        - This function allows the user to study a selected study set by displaying the terms and their definitions. 
+        - It may include options for reviewing the material, such as showing definitions and prompting the user to recall the corresponding terms. 
+        - This interactive study session aims to reinforce the user's knowledge and retention of the study material.
 */
 void quizASet();
+
+/*
+    Name: quizASet
+    Author Name: Mackenzie Raleigh
+    Argurments: 
+        -void: This function takes no arguments.
+    Returns:
+        - void: This function does not return a value. 
+        - It handles the process of administering a quiz based on a selected study set.
+
+    Purpose : 
+        - This function administers a quiz to the user based on a selected study set. 
+        - It prompts the user for the number of questions and evaluates their responses against the correct answers. 
+        - The function provides feedback on the user's performance, including the score achieved, and may allow the user to retake the quiz. 
+        - This interactive component aims to test the user's knowledge and reinforce learning through assessment.
+*/
 
 
 #endif
