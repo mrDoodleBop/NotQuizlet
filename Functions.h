@@ -8,7 +8,6 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
-#include "StudySet.h"
 #include "Student.h"
 
 //FUNCTION DECLARATIONS
@@ -81,7 +80,7 @@ void editASet(Student* student);
         - The function may include functionality to add new terms, remove existing terms, or modify definitions. 
         - This interactive editing session aims to help the user keep their study materials up-to-date and relevant.
 */
-void studyASet();
+void studyASet(Student *user);
 
 /* 
     Name : studyASet
@@ -97,7 +96,7 @@ void studyASet();
         - It may include options for reviewing the material, such as showing definitions and prompting the user to recall the corresponding terms. 
         - This interactive study session aims to reinforce the user's knowledge and retention of the study material.
 */
-void quizASet();
+void quizASet(Student *user);
 
 /*
     Name: quizASet

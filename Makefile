@@ -26,6 +26,7 @@ Study 				: StudySet.cpp
 					g++ StudySet.cpp
 
 run					: a.exe
+					a
 
 testSomething		: #a.exe < whatever the test case file is named
 

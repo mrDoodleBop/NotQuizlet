@@ -11,12 +11,14 @@
 Student::Student(){
 
     this->name = "N/A";
+    this->studySets->setSize(0);
 
 }
 
 
-Student::Student(string studentName){
+Student::Student(string studentName, int tableSize){
     this->name = studentName;
+    this->studySets->setSize(tableSize);
 }
 
 string Student::getName() {
@@ -26,33 +28,44 @@ string Student::getName() {
 
 void Student::addStudySet(StudySet* set) {
     
-    //add the argument set into the list of linked lists in the student class:
+    //determine the key (literally just the length of the name of the set for this project):
+    int key = set->getName().size();
+
+    //add set to the hash table:
+    studySets->putValue(key, set);
 
 }
 
 // Finds a StudySet by name
-StudySet* Student::findStudySetByName(const std::string& setName) {
-    for (auto it = studySets->begin(); it != studySets->end(); ++it) {  // Iterator-based loop
-        if (it->getName() == setName) {
-            return &(*it);
-        }
-    }
-    return nullptr;
+StudySet Student::findStudySetByName(const std::string* setName) {
+    
+    //since the key is just the length of the name of the list, get the key:
+    int key = setName->size();
+
+    //call the value function using the key:
+    return studySets->value(key);
+    
+
 }
 
 void Student::printStudentInfo() {
-    cout << "\n\n|---------- Student Information ----------|";
+
+    cout << "\n\t\t|---------- Student Information ----------|";
     cout << "\n\t\tStudent Name: " << name;
-    cout << "\n\t\tStudy Sets:";
 
-    int n = 1;
+    //check if table is empty:
+    if(studySets->isEmpty()){
 
-    //traverse the list and print the name of every study set in the list:
-    for(list<StudySet>::iterator i = studySets->begin(); i != studySets->end(); i++){
+        cout << "\n\n\t\tYou have no study sets!";
+
+    } else {
         
-        cout << "\n\t\t" << n << ". " << i->getName() << " ";
-        n++;
+        cout << "\n\n\t\tDisplaying your study sets!";
+        //if not empty, print the table:
+        studySets->printHashTable();
 
-    }//end of for loop
+    }//end of conditional branch 
+
+   studySets->printHashTable();
 
 }

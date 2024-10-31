@@ -9,6 +9,7 @@
 #define STUDENT_H
 
 #include "StudySet.h"
+#include "HashTable.h"
 #include <string>
 #include <list>
 
@@ -21,14 +22,14 @@ class Student {
 private:
   
     string name;                 // Student's name
-    list<StudySet>* studySets;    // Pointer to a list of StudySet objects
+    HashTable * studySets = new HashTable();    // Pointer to a list of pointers to StudySet objects
 
 public:
     // Constructor to initialize student name
 
     Student();
 
-    Student(string);
+    Student(string, int);
 
     // Accessor to get the student's name
     string getName();
@@ -37,7 +38,7 @@ public:
     void addStudySet(StudySet*);
 
     // Method to find a StudySet by name
-    StudySet* findStudySetByName(const string& setName);
+    StudySet findStudySetByName(const string* setName);
 
     // Method to print student information and all study sets
     void printStudentInfo();
