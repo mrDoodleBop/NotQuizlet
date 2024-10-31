@@ -10,12 +10,18 @@
 #ifndef HASHTABE_H
 #define HASHTABLE_H
 
-#include "StudySet.h"
 #include "Student.h"
 
 using namespace std;
 
 //Inlcudes:
+
+/*
+
+    HashTable is used to store all of the user's StudySet objects into their Student object
+        -> utilizes Chaining
+
+*/
 
 class HashTable{
 
@@ -25,13 +31,13 @@ class HashTable{
         struct HashEntry{
 
             int key;
-            StudySet value;
+            StudySet* value;
             HashEntry *next;
 
         };//end of HashEntry structure
 
         //Initialize the table size and hash array
-        int tableSize = 0;
+        int tableSize;
         HashEntry** hashArray;
 
 
@@ -88,7 +94,7 @@ class HashTable{
             if(hashArray[bucketIndex] == NULL){//if the bucket is empty
 
                 cout << "\n\n\t\tYou have no study sets!";
-                return hashArray[bucketIndex]->value;
+                return *hashArray[bucketIndex]->value;
 
             } else {
 
@@ -104,11 +110,11 @@ class HashTable{
                 if(entry == NULL){//if the entry is empty
 
                     cout << "\n\n\t\tThe study set is empty!";
-                    return hashArray[bucketIndex]->value;
+                    return *hashArray[bucketIndex]->value;
 
                 } else { //otherwise return the value the key guards
 
-                    return entry->value;
+                    return *entry->value;
 
                 }
 
@@ -122,7 +128,7 @@ class HashTable{
             HashEntry *newHE = new HashEntry;
 
             newHE->key = key;
-            newHE->value = *value;
+            newHE->value = value;
             newHE->next = NULL;
 
 
@@ -146,7 +152,7 @@ class HashTable{
 
                 if(entry->key == key){
 
-                    entry->value = *value; //update the value for this key
+                    entry->value = value; //update the value for this key
 
                 } else {
 
@@ -206,6 +212,7 @@ class HashTable{
         void printHashTable(){
 
             cout << "\n\n\t\t|---------- StudySets ----------|";
+            cout << "\n\t\tPrinting the sets...";
 
             //iterate through the table:
             for(int i = 0; i < tableSize; i++){
@@ -215,12 +222,16 @@ class HashTable{
 
                     while(entry->next != NULL){
 
-                        cout << "\n\t\t----->\t" << entry->value.getName();
+                        cout << "\n\t\tPrinting the name of the set...";
+
+                        cout << "\n\t\t----->\t" << entry->value->getName();
                         entry = entry->next; 
 
                     }//end of while loop
-                
+                    
                 } else {
+
+                    cout << "\n\t\tPrinting NULL";
 
                     cout << "\n\t\tNULL";
 
@@ -231,13 +242,11 @@ class HashTable{
 
         }//end of printHashTable method
 
-
         int getSize(){
 
             return this->tableSize;
 
         }//end of getSize function
-
 
         void setSize(int size){
 
@@ -253,7 +262,7 @@ class HashTable{
 
                 entry = hashArray[i];
 
-                if(entry->value.getName() != "N/A"){
+                if(hashArray[i] != NULL){
 
                     return false;
                 }

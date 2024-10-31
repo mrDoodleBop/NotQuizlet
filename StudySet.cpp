@@ -96,6 +96,8 @@ string StudySet::getNodeValue(int pos){
         }
     }
 
+    return "N/A"; //node value not found
+
 }//end of get node value
 
 void StudySet::appendNode(string n){

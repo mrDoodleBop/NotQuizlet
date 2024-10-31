@@ -15,8 +15,15 @@
 
 using namespace std;
 
-// Forward declaration of StudySet class (since StudySet will be included later)
-//class StudySet;
+/*
+
+    Student is used to store all of the user's data
+        -> includes name, age, and year in school
+        -> includes a HashTable with the user's StudySet objects
+
+        -> this is where the majority of the functions for the program will be run from
+
+*/
 
 class Student {
     private:
@@ -72,6 +79,14 @@ class Student {
 
         //printStudent:
         void printStudent();
+
+        void editASet();
+
+        void createASet();
+
+        void quizASet();
+
+        void studyASet();
         
 
 };

@@ -17,12 +17,24 @@
 
 using namespace std;
 
+/*
+
+    StudySet is used to store the user's list of terms and definitions for a specific study set
+        -> each study set has a name and a key (the length of the name) 
+            -> key is for storage into the HashTable
+        
+        -> the terms are placed into even indices while the definitions are stored in the odd indices
+            -> if we are in the location of a definition, then we know the matching term by just going to the previous node
+            -> if we are in the location of a term, then we know the matching definition by just going to the next node
+
+*/
+
 class StudySet{
 
     private:
 
         string name;
-        int key; // for storage in the hash table
+        int key = name.size(); // for storage in the hash table -> key is the length of the name of the set
 
         struct listNode{
 
