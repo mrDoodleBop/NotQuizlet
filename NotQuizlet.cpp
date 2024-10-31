@@ -6,7 +6,13 @@
 */
 
 #include "Functions.h"
+<<<<<<< HEAD
 #include "Student.h"
+=======
+#include "StudySet.h"
+#include "Student.h"
+
+>>>>>>> origin/main
 
 //main function:
 int main(){
@@ -101,9 +107,36 @@ int main(){
 
         };//end of switch statement
 
+<<<<<<< HEAD
         //ask the user if they would like to run the program again:
         cout << "\n\n\t\tWould you like to see the menu again? (y/n) : ";
         cin >> flag;
+=======
+                case 1:
+                    //call the printStudentInfo() function
+                    user->printStudentInfo();
+                    break;
+                case 2:
+                    //call createSet function
+                    createASet(user);
+                    break;
+                case 3:
+                    //call editSet function
+                    editASet(user);
+                    break;
+                case 4:
+                    //call studyASet function
+                    //studyASet(user);
+                    break;
+                case 5:
+                    //call quizSet function
+                    quizASet(user);
+                    break;
+                case 6:
+                    //ask the user if they would like to run the program again:
+                    cout << "\n\n\t\tWould you like to see the menu again? (y/n) : ";
+                    cin >> flag;
+>>>>>>> origin/main
 
         //flag validation loop
         while(flag != 'n' && flag != 'N' && flag != 'y' && flag != 'Y'){
@@ -129,12 +162,20 @@ int main(){
 
                 if(fileFlag == 'y' || fileFlag == 'Y'){
 
+<<<<<<< HEAD
                     //call addFile function:
                     addFile(user);
+=======
+                            //call addFile function:
+                            //addFile(user);
+>>>>>>> origin/main
 
                 }//end of fileFlag if statement
 
             }//end of conditional branch
+
+            cout << "\n\n\t\tWould you like to see the menu again? (y/n) : ";
+            cin >> flag;
 
 
     }//end of while loop

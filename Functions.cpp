@@ -75,14 +75,21 @@ void createASet(Student* user){
     cin.ignore();
     getline(cin, name);
 
+    cout << "\n\t\tWould you like to enter a term? (y/n) : ";
+    cin >> flag;
+
     //dynamically allocate a new study set object:
     StudySet *newSet = new StudySet(name);
 
+<<<<<<< HEAD
     cout << "\n\n\t\tWould you like to begin on your study set? (y/n) : ";
     cin >> flag;
 
     while(flag != 'n' && flag != 'N'){
 
+=======
+    while(flag != 'n' && flag != 'N'){
+>>>>>>> origin/main
         cout << "\n\t\tEnter a term : ";
         cin.ignore();
         getline(cin, in);
@@ -94,7 +101,11 @@ void createASet(Student* user){
 
         newSet->append(in);
 
+<<<<<<< HEAD
         cout << "\n\n\t\tWould you like to enter another term? (y/n) : ";
+=======
+        cout << "\n\n\t\tWould you like to add another term? (y/n) : ";
+>>>>>>> origin/main
         cin >> flag;
     }//end of while loop
 
@@ -107,6 +118,7 @@ void createASet(Student* user){
 
 }//end of createASet function
 
+<<<<<<< HEAD
 
 void studyASet(Student *user){
 
@@ -120,3 +132,13 @@ void addFile(Student *user){
     cout << "\n\n\t\tAdding a file...";
 
 }//end of addFile function
+=======
+void studyASet(Student* user){
+
+}//end of studyASet function
+
+void addFile(Student* user){
+
+}//end of addFile function
+
+>>>>>>> origin/main

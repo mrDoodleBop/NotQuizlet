@@ -22,7 +22,11 @@ class Student {
 private:
   
     string name;                 // Student's name
+<<<<<<< HEAD
     HashTable * studySets = new HashTable();    // Pointer to a list of pointers to StudySet objects
+=======
+    list<StudySet>* studySets;    // list of pointers to StudySet objects
+>>>>>>> origin/main
 
 public:
     // Constructor to initialize student name

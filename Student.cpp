@@ -49,6 +49,7 @@ StudySet Student::findStudySetByName(const std::string* setName) {
 }
 
 void Student::printStudentInfo() {
+<<<<<<< HEAD
 
     cout << "\n\t\t|---------- Student Information ----------|";
     cout << "\n\t\tStudent Name: " << name;
@@ -63,9 +64,26 @@ void Student::printStudentInfo() {
         cout << "\n\n\t\tDisplaying your study sets!";
         //if not empty, print the table:
         studySets->printHashTable();
+=======
+    cout << "\n\n\t\t|---------- Student Information ----------|";
+    cout << "\n\t\tStudent Name: " << name;
+
+    cout << "\n\n\t\tTesting if the list is empty...";
+
+    for(list<StudySet>::iterator i = studySets->begin(); i != studySets->end(); i++){
+
+        if((i == studySets->begin()) && (i->getName() == "N/A")){
+            cout << "\n\n\t\tYou have no study sets! Please create some and try again.";
+            return;
+        }
+>>>>>>> origin/main
 
     }//end of conditional branch 
 
    studySets->printHashTable();
 
-}
+
+    return;
+
+}//end of printStudentInfo function
+

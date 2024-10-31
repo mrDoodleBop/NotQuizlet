@@ -80,7 +80,11 @@ void editASet(Student* student);
         - The function may include functionality to add new terms, remove existing terms, or modify definitions. 
         - This interactive editing session aims to help the user keep their study materials up-to-date and relevant.
 */
+<<<<<<< HEAD
 void studyASet(Student *user);
+=======
+void studyASet(Student* user);
+>>>>>>> origin/main
 
 /* 
     Name : studyASet
@@ -113,6 +117,8 @@ void quizASet(Student *user);
         - The function provides feedback on the user's performance, including the score achieved, and may allow the user to retake the quiz. 
         - This interactive component aims to test the user's knowledge and reinforce learning through assessment.
 */
+
+void addFile(Student* user);
 
 
 #endif
