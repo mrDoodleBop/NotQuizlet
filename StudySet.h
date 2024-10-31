@@ -3,6 +3,10 @@
     Author Name : Michael Cates
     Date : 10/10/2024
     Purpose : Header file for the StudySet class
+
+    //nodes will house strings
+        -> even indexes = terms
+        -> odd indexes = definitions
 */
 
 #ifndef STUDYSET_H
@@ -16,73 +20,80 @@ using namespace std;
 class StudySet{
 
     private:
-        string name;
-        
-        //structure for the list nodes:
-        struct listNode{
-            string value;
-            listNode *next;
-        };
 
-        //pointer for the head and tail of the list:
+        string name;
+        int key; // for storage in the hash table
+
+        struct listNode{
+
+            string *value;
+            listNode *next;
+
+        };//end of listNode
+
         listNode *head;
         listNode *tail;
 
-
     public:
-
         //constructor:
         StudySet(){
-            name = "N/A";
+
             head = NULL;
             tail = NULL;
+
         }
 
-        StudySet(string n){
-            name = n;
-            head = NULL;
-            tail = NULL;
-        }
-
-        //Destructor
+        //destructor:
         ~StudySet();
 
-        //accessor:
-        string getName();
-
-        //mutator:
-        void setName(string);
-
-        //print info function:
-        void printSetInfo();
-
-        //append:
-        void append(string);
-
-        //isEmpty:
         bool isEmpty();
 
-        //remove term:
-        void remove(string);
+        int getLength();
 
-        // New methods
-        bool hasTerm(const string& term);                 // Check if a term exists
-        void updateTerm(const string& oldTerm, const string& newTerm); // Update a term
-        void updateDefinition(const string& term, const string& newDefinition); // Update a definition
+        int search(string);
 
-        // Get number of terms
-        int getNumberOfTerms(); // New method declaration
+        string getNodeValue(int);
 
-        // Get term and definition at specific index
-        string getTermAt(int index);          // New method declaration
-        string getDefinitionAt(int index);    // New method declaration
+        void appendNode(string);
 
-        //add a list:
-        //->this function is only used when dealing with the studySets linked list in the student class:
-        void appendList(StudySet*);
+        void insertNode(int, string);
+
+        void deleteNode(string);
+
+        void displayList() const;
+
+        void insertionSort();
+
+        void swap(int, int);
+
+        //setters:
+
+        string getName(){
+
+            return this->name;
+
+        }
+
+        int getKey(){
+
+            return this->key;
+
+        }
+
+        //getters:
+        void setName(string n){
+
+            this->name = n;
+
+        }
+        
+        void setKey(int k){
+
+            this->key = k;
+
+        }
+
 
 };//end of StudySet class
-
-
 
 #endif

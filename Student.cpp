@@ -8,82 +8,57 @@
 #include "Student.h"
 #include "StudySet.h"
 
-Student::Student(){
+string Student::getName(){
 
-    this->name = "N/A";
-    this->studySets->setSize(0);
-
-}
-
-
-Student::Student(string studentName, int tableSize){
-    this->name = studentName;
-    this->studySets->setSize(tableSize);
-}
-
-string Student::getName() {
     return this->name;
-}
-
-
-void Student::addStudySet(StudySet* set) {
-    
-    //determine the key (literally just the length of the name of the set for this project):
-    int key = set->getName().size();
-
-    //add set to the hash table:
-    studySets->putValue(key, set);
 
 }
 
-// Finds a StudySet by name
-StudySet Student::findStudySetByName(const std::string* setName) {
-    
-    //since the key is just the length of the name of the list, get the key:
-    int key = setName->size();
+int Student::getAge(){
 
-    //call the value function using the key:
-    return studySets->value(key);
-    
+    return this->age;
 
 }
 
-void Student::printStudentInfo() {
-<<<<<<< HEAD
+int Student::getYear(){
 
-    cout << "\n\t\t|---------- Student Information ----------|";
-    cout << "\n\t\tStudent Name: " << name;
+    return this->year;
 
-    //check if table is empty:
-    if(studySets->isEmpty()){
+}
 
-        cout << "\n\n\t\tYou have no study sets!";
+void Student::setName(string n){
 
-    } else {
-        
-        cout << "\n\n\t\tDisplaying your study sets!";
-        //if not empty, print the table:
-        studySets->printHashTable();
-=======
-    cout << "\n\n\t\t|---------- Student Information ----------|";
-    cout << "\n\t\tStudent Name: " << name;
+    this->name = n;
 
-    cout << "\n\n\t\tTesting if the list is empty...";
+}
 
-    for(list<StudySet>::iterator i = studySets->begin(); i != studySets->end(); i++){
+void Student::setAge(int a){
 
-        if((i == studySets->begin()) && (i->getName() == "N/A")){
-            cout << "\n\n\t\tYou have no study sets! Please create some and try again.";
-            return;
-        }
->>>>>>> origin/main
+    this->age = a;
 
-    }//end of conditional branch 
+}
 
-   studySets->printHashTable();
+void Student::setYear(int y){
+
+    this->year = y;
+
+}
+
+void Student::printStudent(){
+
+    cout << "\n\n\t\t|--------- STUDENT INFORMATION ----------|";
+
+    cout << "\n\t\tName : " << this->name << "\n\t\tAge : " << this->age << "\n\t\tYear : " << this->year;
+
+    this->sets->printHashTable();
+
+}//end of print student
+
+void Student::addSet(StudySet *set){
+
+    this->sets->putValue(set->getKey(), set);
+
+}//end of addSet
 
 
-    return;
-
-}//end of printStudentInfo function
 

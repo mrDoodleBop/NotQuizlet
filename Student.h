@@ -19,34 +19,60 @@ using namespace std;
 //class StudySet;
 
 class Student {
-private:
-  
-    string name;                 // Student's name
-<<<<<<< HEAD
-    HashTable * studySets = new HashTable();    // Pointer to a list of pointers to StudySet objects
-=======
-    list<StudySet>* studySets;    // list of pointers to StudySet objects
->>>>>>> origin/main
+    private:
+        string name;
+        int age;
+        int year; //1, 2, 3, etc
 
-public:
-    // Constructor to initialize student name
+        //Hash table of pointers StudySet objects:
+        HashTable* sets;
+        
+    public:
 
-    Student();
+        //constructor:
+        Student(){
 
-    Student(string, int);
+            name = "N/A";
+            age = 18;
+            year = 1;
 
-    // Accessor to get the student's name
-    string getName();
+        }//end of default constructor
 
-    // Method to add a StudySet to the student's list of sets
-    void addStudySet(StudySet*);
+        Student(string n, int age, int year){
 
-    // Method to find a StudySet by name
-    StudySet findStudySetByName(const string* setName);
+            this->name = n;
+            this->age = age;
+            this->year = year;
 
-    // Method to print student information and all study sets
-    void printStudentInfo();
+        }//end of overloaded constructor
 
+        //destructor:
+        ~Student(){
+
+            cout << "\n\n\t\tDeleting Student Data...";
+            sets->~HashTable();
+
+        }
+
+        //setters:
+        void setName(string);
+
+        void setAge(int);
+
+        void setYear(int);
+
+        void addSet(StudySet *set);
+
+        //getters:
+        string getName();
+
+        int getAge();
+
+        int getYear();
+
+        //printStudent:
+        void printStudent();
+        
 
 };
 

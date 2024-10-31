@@ -33,18 +33,7 @@
     -> if the list of study sets is empty, the function will inform the user that and won't save a file, because it would
     be a waste of space to save an empty file
 */
-
 void addFile(Student*user);
-
-/*
-    Name : 
-    Author Name : Michael Cates
-    Arguments : 
-    Returns : 
-    Purpose :
-*/
-
-void createASet(Student*user);
 
 /*
     Name : createASet
@@ -62,7 +51,7 @@ void createASet(Student*user);
         - This function prompts the user to enter details for a new study set, such as its name and the terms and definitions to be included. 
         - It then creates the study set and adds it to the student's collection, enabling the user to organize their study material effectively.
 */
-void editASet(Student* student);
+void createASet(Student*user);
 
 /*
     Name : editASet
@@ -80,11 +69,7 @@ void editASet(Student* student);
         - The function may include functionality to add new terms, remove existing terms, or modify definitions. 
         - This interactive editing session aims to help the user keep their study materials up-to-date and relevant.
 */
-<<<<<<< HEAD
-void studyASet(Student *user);
-=======
-void studyASet(Student* user);
->>>>>>> origin/main
+void editASet(Student* student);
 
 /* 
     Name : studyASet
@@ -100,7 +85,8 @@ void studyASet(Student* user);
         - It may include options for reviewing the material, such as showing definitions and prompting the user to recall the corresponding terms. 
         - This interactive study session aims to reinforce the user's knowledge and retention of the study material.
 */
-void quizASet(Student *user);
+void studyASet(Student *user);
+
 
 /*
     Name: quizASet
@@ -117,7 +103,16 @@ void quizASet(Student *user);
         - The function provides feedback on the user's performance, including the score achieved, and may allow the user to retake the quiz. 
         - This interactive component aims to test the user's knowledge and reinforce learning through assessment.
 */
+void quizASet(Student *user);
 
+/*
+    Name: addFile
+    Author Name: Michael Cates
+    Argurments: Pointer to a Student object
+    Returns: void
+    Purpose : adds the student information to a txt file
+        
+*/
 void addFile(Student* user);
 
 

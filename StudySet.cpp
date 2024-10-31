@@ -13,84 +13,97 @@ StudySet::~StudySet(){
 
     listNode *nodePtr, *nextNode;
 
-    //position nodePtr at the top of the stack:
     nodePtr = head;
 
-    //traverse list deleting each node:
-    while (nodePtr != NULL){
-        
+    while(nodePtr!=NULL){
         nextNode = nodePtr->next;
         delete nodePtr;
         nodePtr = nextNode;
+    }
 
-    }//end of while loop
+}//end of destructor
 
-}//end of destructor method
+bool StudySet::isEmpty(){
 
-string StudySet::getName(){
+    if(!head){
+        return true;
+    } else 
+        return false;
 
-    return this->name;
+}//end of isEmpty
 
-}//end of get name method
+int StudySet::getLength(){
 
-void StudySet::setName(string n){
-
-    this->name = n;
-
-}//end of set name method
-
-void StudySet::printSetInfo(){
-
-    listNode *nodePtr, *nextNode;
+    int counter = 0;
+    listNode* nodePtr;
 
     nodePtr = head;
 
-    //check if empty:
-    if(head == NULL){
+    while(nodePtr != tail){
+        counter++;
+        nodePtr = nodePtr->next;
 
-        cout << "\n\n\t\tThe list is empty! You have no study sets :(";
+        if(nodePtr == tail)
+            counter++;
+    }
 
-    } else {   
+    return counter;
 
-        string term;
-        string def;
+}//end of get length
 
-        int i = 0; //iterator to help determine whether the value in the node is a term or definition
+int StudySet::search(string n){
 
-        //Displaying the header:
-        cout << "\n\n\t\t|---------- " << this->name << " ----------|";
+    listNode *nodePtr;
+    int position;
 
-        //iterate through the list printing out the study set information:
-        while(nodePtr != NULL){
+    nodePtr = head;
+    position = 0;
 
-            nextNode = nodePtr->next;
+    while(nodePtr){
 
-            //determine whether the value is a term or definition:
-            if(i % 2 == 0){
+        if(*nodePtr->value == n)
+            return position;//return the position of the argument in the list
 
-                term = nodePtr->value;
-                cout << "\n\t\tTerm : " << term;
+        position++;
 
-            } else {
+        nodePtr = nodePtr->next;
+    }
 
-                def = nodePtr->value;
-                cout << "\n\t\tDefinition : " << def;
+    return -1;//not found in list
 
-            }//end of if/ else branch
-            
+}//end of search
 
-        }//end of while loop
+string StudySet::getNodeValue(int pos){
 
-    }//end of if/ else branch
+    listNode *nodePtr;
 
-}//end of print set info function
+    if(!head){
+        return "N/A";
+    } else {
+        if(pos == 0)
+            return *head->value;
+        
+        nodePtr = head;
+        int currentPos = 0;
 
-void StudySet::append(string value){
+        while(pos >= currentPos && nodePtr != NULL){
+
+            if(pos == currentPos)
+                return *nodePtr->value;
+
+            currentPos++;
+            nodePtr = nodePtr->next;
+        }
+    }
+
+}//end of get node value
+
+void StudySet::appendNode(string n){
 
     listNode *newNode;
 
     newNode = new listNode;
-    newNode->value = value;
+    newNode->value = &n;
     newNode->next = NULL;
 
     if(!head){
@@ -105,169 +118,171 @@ void StudySet::append(string value){
 
     }
 
-    //delete allocated memory:
-    delete newNode;
+}//end of append
 
-}//end of append function
+void StudySet::insertNode(int pos, string n){
 
-bool StudySet::isEmpty(){
+    listNode *nodePtr, *newNode;
+
+    newNode = new listNode;
+    newNode->value = &n;
 
     if(!head){
-        return true;
+        if(pos != 0){
+
+            cout << "\n\n\t\tCannot insert new data at a position that doesn't exist. \nAdding data to position 1";
+
+
+        }
+
+        head = newNode;
+        tail = newNode;
+
     } else {
-        return false;
+
+        nodePtr = head;
+        int nodeCount = 0;
+
+        if(pos == 0){
+
+            newNode->next = head;
+            head = newNode;
+
+        } else {
+
+            while(nodePtr != tail &&  nodeCount < pos){
+
+                nodeCount++;
+                if(nodeCount == pos)
+                    break;
+
+                nodePtr = nodePtr->next;
+
+            }
+
+            if(nodePtr->next == NULL)
+                tail = newNode;
+
+            newNode->next = nodePtr->next;
+            nodePtr->next = newNode;
+
+        }
+
     }
 
-}//end of the is empty function
+}//end of insert
 
-void StudySet::remove(string n){
-    //function will remove the term that the user enters plus the node next to the term (definition)
+void StudySet::deleteNode(string n){
 
-    listNode *nodePtr, *nextNode, *previousNode;
+    listNode *nodePtr, *prevNode;
 
-    //if the list is empty, do nothing:
     if(!head){
-
-        cout << "\n\n\t\tThe list is empty. There is nothing to delete.";
         return;
+    }
 
-    } 
+    if(*head->value == n){
 
-
-    if(head->value == n){
         nodePtr = head->next;
-        nextNode = nodePtr->next;
-
-        //delete the term node and the definition node:
         delete head;
-        delete nodePtr;
-
-        nodePtr = nextNode;
         head = nodePtr;
-        nextNode = head->next;
+
     } else {
 
         nodePtr = head;
 
-        while (nodePtr != NULL && nodePtr->value != n){
 
-            previousNode = nodePtr;
-            nodePtr = nextNode;
-            nextNode = nodePtr->next;
+        while(nodePtr != NULL && *nodePtr->value != n){
+
+            prevNode = nodePtr;
+            nodePtr = nodePtr->next;
 
         }
+
 
         if(nodePtr){
+
             if(nodePtr == tail){
 
-                tail = previousNode;
+                tail = prevNode;
 
             }
 
-            previousNode->next = nodePtr->next;
+            prevNode->next = nodePtr->next;
             delete nodePtr;
+
         }
 
     }
-}
 
+}//end of delete
 
-// Check if a term exists
-bool StudySet::hasTerm(const std::string& term) {
-    listNode* nodePtr = head;
-    int i = 0;
-    while (nodePtr != NULL) {
-        if (i % 2 == 0 && nodePtr->value == term) {
-            return true;
+void StudySet::displayList() const{
+
+    listNode *nodePtr;
+
+    if(head != NULL){
+
+        nodePtr = head;
+
+        while(nodePtr){
+
+            cout << nodePtr -> value << endl;
+
+            nodePtr = nodePtr->next;
+
         }
-        nodePtr = nodePtr->next;
-        i++;
-    }
-    return false;
-}
 
-// Update a term
-void StudySet::updateTerm(const std::string& oldTerm, const std::string& newTerm) {
-    listNode* nodePtr = head;
-    int i = 0;
-    while (nodePtr != NULL) {
-        if (i % 2 == 0 && nodePtr->value == oldTerm) {
-            nodePtr->value = newTerm;
-            return;
-        }
-        nodePtr = nodePtr->next;
-        i++;
-    }
-    std::cout << "Term not found in this set.\n";
-}
+    } else {
 
-// Update a definition
-void StudySet::updateDefinition(const std::string& term, const std::string& newDefinition) {
-    listNode* nodePtr = head;
-    int i = 0;
-    while (nodePtr != NULL) {
-        if (i % 2 == 0 && nodePtr->value == term) {
-            if (nodePtr->next != NULL) {
-                nodePtr->next->value = newDefinition;
-            } else {
-                std::cout << "Definition not found for this term.\n";
-            }
-            return;
-        }
-        nodePtr = nodePtr->next;
-        i++;
-    }
-    std::cout << "Term not found in this set.\n";
-}
+        cout << "\nThere is no data in the list.\n\n";
 
-
-// Get the number of terms
-int StudySet::getNumberOfTerms() {
-    listNode* nodePtr = head;
-    int count = 0;
-
-    while (nodePtr != NULL) {
-        if (count % 2 == 0) { // Count only terms (even indices)
-            count++;
-        }
-        nodePtr = nodePtr->next;
     }
 
-    return count;
-}
+}//end of display
 
-// Get the term at a specific index
-string StudySet::getTermAt(int index) {
-    listNode* nodePtr = head;
-    int count = 0;
+void StudySet::insertionSort(){
 
-    while (nodePtr != NULL) {
-        if (count % 2 == 0) { // Even index: term
-            if (count == index) {
-                return nodePtr->value;
-            }
+    string key;
+    int j;
+
+    for(int i = 1; i < getLength(); i++){
+
+        key = getNodeValue(i);
+        j = i-1;
+        while(j >= 0 && getNodeValue(j) > key){
+
+            j = j-1;
+
         }
-        nodePtr = nodePtr->next;
-        count++;
+
+        deleteNode(key);
+        insertNode(j+1, key);
+
     }
 
-    return ""; // Return an empty string if the index is out of bounds
-}
+}//end of insertion sort
 
-// Get the definition at a specific index
-string StudySet::getDefinitionAt(int index) {
-    listNode* nodePtr = head;
-    int count = 0;
+void StudySet::swap(int pos1, int pos2){
 
-    while (nodePtr != NULL) {
-        if (count % 2 == 1) { // Odd index: definition
-            if (count == index) {
-                return nodePtr->value;
-            }
-        }
-        nodePtr = nodePtr->next;
-        count++;
+    listNode *nodePtr1 = NULL;
+    listNode *nodePtr2 = NULL;
+    string *tempValue;
+
+    nodePtr1 = head;
+
+    int currentPos = 0;
+
+    while(nodePtr1 != NULL && pos1 != currentPos){
+
+        nodePtr2 = nodePtr2->next;
+        currentPos++;
+
     }
 
-    return ""; // Return an empty string if the index is out of bounds
-}
+    tempValue = nodePtr1->value;
+    nodePtr1->value = nodePtr2->value;
+    nodePtr2->value = tempValue;
+
+}//end of swap
+
+
